@@ -10,12 +10,6 @@ function createNotification(message) {
   chrome.notifications.create("pomodoro-zap", {type: "basic", title: "Pomodoro Zap", message: message, iconUrl: "logo.png"}, null);
 }
 
-function getHostnameFromUrl(url) {
-   var parser = document.createElement('a');
-   parser.href = url;
-   return parser.hostname;
-}
-
 function zap() {
   createNotification(ZAP_MESSAGES.sample());
 
@@ -29,15 +23,25 @@ function zap() {
   oReq.send();
 }
 
-function urlMatchBanList(url) {
-  var bannedHostnames = readOptions().forbidden.split("\n") || [];
-  var hostname = getHostnameFromUrl(url);
+function createPattern(bannedPatternString) {
+  // this would match "notreddit.com" if your bannedPatternString was "reddit.com" but I don't care
+  return new RegExp("(.*)" + bannedPatternString + "(.*)");
+}
 
-  bannedHostnames.forEach(function(bannedHostname) {
-    if (hostname == bannedHostname) {
-      zap();
-    }
+function urlMatchBanList(url) {
+  var bannedPatterns = (readOptions().forbidden.split("\n") || []).map(function(string) {
+    return createPattern(string);
   });
+
+  console.log(bannedPatterns)
+
+  var anyMatches = bannedPatterns.any(function(bannedPattern) {
+    return bannedPattern.test(url);
+  });
+
+  if (anyMatches) {
+    zap();
+  }
 }
 
 function inActiveSession() {
