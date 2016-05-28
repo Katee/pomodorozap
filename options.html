@@ -1,19 +1,33 @@
 <!doctype html>
 <html>
   <head><title>Options - Zappening</title></head>
-  <style>
-    body { max-width: 30em; margin: 2em auto; }
-    textarea { display: block; margin: 0; padding: 0; margin-bottom: 1em; width: 100%; height: 10em; }
-    #status { display: inline; }
-    #defaults { float: right; }
-  </style>
-  <body>
-    <h1>Zappening banned list</h2>
-    <textarea id="forbidden"></textarea>
+  <link href="zappening.css" rel="stylesheet" type="text/css">
+  <body id="options">
+    <h1>Pomodoro Zap</h1>
+
+    <section id="work-length">
+      <label>Work length</label>
+      <div class="time">
+        <input id="work-length-minutes" class="input-time" type="number" placeholder="mm" min="0" max="59" /> : <input id="work-length-seconds" class="input-time" type="number" placeholder="ss" min="0" max="59" />
+      </div>
+    </section>
+
+    <section id="break-length">
+      <label>Break length</label>
+      <div class="time">
+        <input id="break-length-minutes" class="input-time" type="number" placeholder="mm" min="0" max="59" /> : <input id="break-length-seconds" class="input-time" type="number" placeholder="ss" min="0" max="59" />
+      </div>
+    </section>
+
+    <div class="form-row">
+      <label for="forbidden">Sites forbidden when working</label>
+      <textarea id="forbidden"></textarea>
+    </div>
+
     <button id="save">Save</button>
     <div id="status"></div>
-    <button id="defaults">Restore Defaults</button>
   </body>
-  <script type="text/javascript" src="js/lib/jquery.min.js"></script>
-  <script type="text/javascript" src="js/options.js"></script>
+  <script src="lib/jquery.min.js"></script>
+  <script src="zappening.js"></script>
+  <script src="options.js"></script>
 </html>

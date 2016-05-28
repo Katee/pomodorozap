@@ -4,11 +4,15 @@
   "description": "STAY ON TASK",
   "background": {
     "persistent": false,
-    "scripts": ["navigation_collector.js", "background.js"]
+    "scripts": ["zappening.js", "background.js"]
   },
   "permissions": [
-    "webNavigation", "storage"
+    "webNavigation", "storage",
+    "http://pomodorozap.com/*"
   ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
   "options_page": "options.html",
   "manifest_version": 2
 }
