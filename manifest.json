@@ -2,7 +2,6 @@
   "name": "Zappening",
   "version": "0.1",
   "description": "STAY ON TASK",
-  "default_locale": "en",
   "background": {
     "persistent": false,
     "scripts": ["navigation_collector.js", "background.js"]
@@ -10,5 +9,6 @@
   "permissions": [
     "webNavigation", "storage"
   ],
-  "manifest_version": 1
+  "options_page": "options.html",
+  "manifest_version": 2
 }
