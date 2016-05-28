@@ -4,7 +4,11 @@
   "description": "STAY ON TASK",
   "background": {
     "persistent": false,
-    "scripts": ["zappening.js", "background.js"]
+    "scripts": [
+      "lib/sugar.min.js",
+      "zappening.js",
+      "background.js"
+    ]
   },
   "permissions": [
     "webNavigation", "storage", "notifications",

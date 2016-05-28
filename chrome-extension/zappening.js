@@ -1,5 +1,14 @@
 var SESSION_NAMES = ["work", "break"];
 var ZAP_URL = "http://pomodorozap.com:8001/";
+var ZAP_MESSAGES = [
+  "Was that a good idea?",
+  "GET BACK TO WORK",
+  "pffft slacker"
+];
+
+function createNotification(message) {
+  chrome.notifications.create("pomodoro-zap", {type: "basic", title: "Pomodoro Zap", message: message, iconUrl: "logo.png"}, null);
+}
 
 function getHostnameFromUrl(url) {
    var parser = document.createElement('a');
@@ -8,7 +17,7 @@ function getHostnameFromUrl(url) {
 }
 
 function zap() {
-  console.log('zap');
+  createNotification(ZAP_MESSAGES.sample());
 
   function reqListener () {
     console.log(this.responseText);

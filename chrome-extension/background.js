@@ -5,7 +5,7 @@ var eventList = [
 eventList.forEach(function(e) {
   chrome.webNavigation[e].addListener(function(data) {
     if (typeof data) {
-      console.log("visiting", data.url)
+      console.log("visiting", data.url);
       if (isWorking()) {
         urlMatchBanList(data.url);
       }
