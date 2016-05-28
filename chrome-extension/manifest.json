@@ -7,7 +7,7 @@
     "scripts": ["zappening.js", "background.js"]
   },
   "permissions": [
-    "webNavigation", "storage",
+    "webNavigation", "storage", "notifications",
     "http://pomodorozap.com/*"
   ],
   "browser_action": {
