@@ -1,0 +1,9 @@
+{
+  "name": "Zappening",
+  "version": "1.0",
+  "manifest_version": 1,
+  "description": "STAY ON TASK",
+  "permissions": [
+    "history"
+  ]
+}
