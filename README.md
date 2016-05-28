@@ -1,4 +1,4 @@
-# Zappening
+# Pomodoro Zap
 
 STAY ON TASK
 
